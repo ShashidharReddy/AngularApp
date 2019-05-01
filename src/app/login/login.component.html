@@ -1,0 +1,16 @@
+<div *ngIf="invalidCredentialMsg" style="color:red">{{invalidCredentialMsg}}</div><br/>
+<div style="position:relative;left:20px"> 
+<form [formGroup]='loginForm'>
+  <div style="text-align:center"> 
+    <div class= 'form-group' >
+     <label style="color:cadetblue"> UserName </label>
+     <input type = 'text' class="form-control" formControlName = 'UserName'>
+   </div><br/>
+   <div class="form-group">
+     <label style="color:cadetblue"> Password </label>
+     <input type='password' class="form-control" formControlName = 'Password'>
+   </div><br/>
+   <button style="color:aliceblue;background-color:cadetblue" type = 'submit' (click)='submitted()'>submit</button>
+  </div>
+  </form>
+</div>

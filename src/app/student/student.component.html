@@ -1,0 +1,31 @@
+<div class="student">
+<div style="text-align:center">
+ <h1 style ='color:blueviolet'>Hello <span>{{ message }} </span> <br/>
+ No. of students present : <span>{{ count }}</span>
+ </h1>
+</div>
+<h1>Based on the filter Pipe: <span>{{ filterMetadata.count1 }}</span> </h1>
+<h2> Sorting Student list using custom pipe </h2>
+Sort the list based on
+<select [(ngModel)]="sortoption">
+        <option value="all">All</option>
+        <option value="1">Present</option>
+        <option value="2">Absent</option>
+</select><br/><br/>
+<div #myVar *ngFor = "let data of res | filter: sortoption:filterMetadata" style = 'display: inline-block; padding:25px'>
+    <div [ngClass]="data.attend ? 'isPresent' : 'isAbsent'">
+        <table>
+            <tr>
+                <td>{{ data.name | titlecase }} </td>
+            </tr>
+            <tr>
+                <td>{{ data.classs }} </td>
+            </tr>
+            <tr>
+                <td>{{ data.rollno }} </td>
+            </tr>
+        </table>
+        <button (click) = ChangeStatus(data)>Change Status</button>
+    </div>
+ </div>
+</div>
